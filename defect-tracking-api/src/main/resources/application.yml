@@ -1,0 +1,13 @@
+server:
+  port: 8085
+logging:
+  level:
+    org:
+      springframework: info
+    com:
+      defecttracking: debug
+  file:
+    name: C:/Users/Dell/IdeaProjects/defect-tracking-api/defect-tracking-api/defect-tracking-api.log
+  pattern:
+    file: "%d{yyyy-MM-dd HH:mm:ss} - %msg%n"
+
