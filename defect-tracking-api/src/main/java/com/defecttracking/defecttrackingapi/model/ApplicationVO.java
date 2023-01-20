@@ -14,7 +14,7 @@ import javax.persistence.Column;
 public class ApplicationVO {
     private long applicationId;
     private String description;
-    private String applicatioName;
+    private String applicationName;
     private String owner;
 
 }

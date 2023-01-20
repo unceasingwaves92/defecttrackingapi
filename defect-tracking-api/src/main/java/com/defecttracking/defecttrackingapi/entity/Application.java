@@ -22,7 +22,7 @@ public class Application implements Serializable {
     private String description;
 
     @Column(name = "application_name")
-    private String applicatioName;
+    private String applicationName;
 
     private String owner;
 

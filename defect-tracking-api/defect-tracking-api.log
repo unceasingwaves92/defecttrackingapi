@@ -1,50 +1,211 @@
-2023-01-16 22:30:30 - Starting DefectTrackingApiApplication using Java 1.8.0_144 on DESKTOP-3TVHP8S with PID 10784 (C:\Users\Dell\IdeaProjects\defect-tracking-api\defect-tracking-api\out\production\classes started by Dell in C:\Users\Dell\IdeaProjects\Emexo)
-2023-01-16 22:30:30 - Running with Spring Boot v2.7.7, Spring v5.3.24
-2023-01-16 22:30:30 - The following 1 profile is active: "sit"
-2023-01-16 22:30:34 - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2023-01-16 22:30:34 - Finished Spring Data repository scanning in 197 ms. Found 3 JPA repository interfaces.
-2023-01-16 22:30:37 - Tomcat initialized with port(s): 8085 (http)
-2023-01-16 22:30:37 - Starting service [Tomcat]
-2023-01-16 22:30:37 - Starting Servlet engine: [Apache Tomcat/9.0.70]
-2023-01-16 22:30:38 - Initializing Spring embedded WebApplicationContext
-2023-01-16 22:30:38 - Root WebApplicationContext: initialization completed in 7058 ms
-2023-01-16 22:30:39 - HikariPool-1 - Starting...
-2023-01-16 22:30:41 - HikariPool-1 - Start completed.
-2023-01-16 22:30:41 - HHH000204: Processing PersistenceUnitInfo [name: default]
-2023-01-16 22:30:42 - HHH000412: Hibernate ORM core version 5.6.14.Final
-2023-01-16 22:30:42 - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
-2023-01-16 22:30:43 - HHH000400: Using dialect: org.hibernate.dialect.Oracle10gDialect
-2023-01-16 22:30:46 - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
-2023-01-16 22:30:46 - Initialized JPA EntityManagerFactory for persistence unit 'default'
-2023-01-16 22:30:49 - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2023-01-16 22:30:54 - Tomcat started on port(s): 8085 (http) with context path ''
-2023-01-16 22:30:54 - Started DefectTrackingApiApplication in 24.854 seconds (JVM running for 26.474)
-2023-01-16 22:30:54 - Application has been started
-2023-01-16 22:31:44 - Closing JPA EntityManagerFactory for persistence unit 'default'
-2023-01-16 22:31:44 - HikariPool-1 - Shutdown initiated...
-2023-01-16 22:31:44 - HikariPool-1 - Shutdown completed.
-2023-01-16 22:32:03 - Starting DefectTrackingApiApplication using Java 1.8.0_144 on DESKTOP-3TVHP8S with PID 3356 (C:\Users\Dell\IdeaProjects\defect-tracking-api\defect-tracking-api\out\production\classes started by Dell in C:\Users\Dell\IdeaProjects\Emexo)
-2023-01-16 22:32:03 - Running with Spring Boot v2.7.7, Spring v5.3.24
-2023-01-16 22:32:03 - The following 1 profile is active: "sit"
-2023-01-16 22:32:06 - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2023-01-16 22:32:06 - Finished Spring Data repository scanning in 195 ms. Found 3 JPA repository interfaces.
-2023-01-16 22:32:10 - Tomcat initialized with port(s): 8085 (http)
-2023-01-16 22:32:10 - Starting service [Tomcat]
-2023-01-16 22:32:10 - Starting Servlet engine: [Apache Tomcat/9.0.70]
-2023-01-16 22:32:11 - Initializing Spring embedded WebApplicationContext
-2023-01-16 22:32:11 - Root WebApplicationContext: initialization completed in 7398 ms
-2023-01-16 22:32:12 - HikariPool-1 - Starting...
-2023-01-16 22:32:14 - HikariPool-1 - Start completed.
-2023-01-16 22:32:14 - HHH000204: Processing PersistenceUnitInfo [name: default]
-2023-01-16 22:32:14 - HHH000412: Hibernate ORM core version 5.6.14.Final
-2023-01-16 22:32:15 - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
-2023-01-16 22:32:15 - HHH000400: Using dialect: org.hibernate.dialect.Oracle10gDialect
-2023-01-16 22:32:21 - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
-2023-01-16 22:32:21 - Initialized JPA EntityManagerFactory for persistence unit 'default'
-2023-01-16 22:32:23 - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2023-01-16 22:32:28 - Tomcat started on port(s): 8085 (http) with context path ''
-2023-01-16 22:32:28 - Started DefectTrackingApiApplication in 28.011 seconds (JVM running for 30.982)
-2023-01-16 22:32:28 - Application has been started
-2023-01-16 22:33:23 - Closing JPA EntityManagerFactory for persistence unit 'default'
-2023-01-16 22:33:23 - HikariPool-1 - Shutdown initiated...
-2023-01-16 22:33:23 - HikariPool-1 - Shutdown completed.
+2023-01-20 07:06:16 - Starting DefectTrackingApiApplication using Java 1.8.0_144 on DESKTOP-3TVHP8S with PID 17828 (C:\Users\Dell\IdeaProjects\defect-tracking-api\defect-tracking-api\out\production\classes started by Dell in C:\Users\Dell\IdeaProjects\Emexo)
+2023-01-20 07:06:16 - Running with Spring Boot v2.7.7, Spring v5.3.24
+2023-01-20 07:06:16 - The following 1 profile is active: "sit"
+2023-01-20 07:06:21 - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-01-20 07:06:21 - Finished Spring Data repository scanning in 648 ms. Found 3 JPA repository interfaces.
+2023-01-20 07:06:25 - Tomcat initialized with port(s): 8085 (http)
+2023-01-20 07:06:25 - Starting service [Tomcat]
+2023-01-20 07:06:25 - Starting Servlet engine: [Apache Tomcat/9.0.70]
+2023-01-20 07:06:26 - Initializing Spring embedded WebApplicationContext
+2023-01-20 07:06:26 - Root WebApplicationContext: initialization completed in 9674 ms
+2023-01-20 07:06:28 - HikariPool-1 - Starting...
+2023-01-20 07:06:30 - HikariPool-1 - Start completed.
+2023-01-20 07:06:30 - HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-01-20 07:06:31 - HHH000412: Hibernate ORM core version 5.6.14.Final
+2023-01-20 07:06:31 - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2023-01-20 07:06:32 - HHH000400: Using dialect: org.hibernate.dialect.Oracle10gDialect
+2023-01-20 07:06:37 - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-01-20 07:06:37 - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-01-20 07:06:40 - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-01-20 07:06:47 - Tomcat started on port(s): 8085 (http) with context path ''
+2023-01-20 07:06:47 - Started DefectTrackingApiApplication in 33.208 seconds (JVM running for 35.477)
+2023-01-20 07:06:47 - Application has been started
+2023-01-20 07:08:40 - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-01-20 07:08:40 - Initializing Servlet 'dispatcherServlet'
+2023-01-20 07:08:40 - Completed initialization in 4 ms
+2023-01-20 07:08:45 - Init duration for springdoc-openapi is: 2145 ms
+2023-01-20 07:46:36 - Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-01-20 07:46:36 - HikariPool-1 - Shutdown initiated...
+2023-01-20 07:46:36 - HikariPool-1 - Shutdown completed.
+2023-01-20 07:48:41 - Starting DefectTrackingApiApplication using Java 1.8.0_144 on DESKTOP-3TVHP8S with PID 19124 (C:\Users\Dell\IdeaProjects\defect-tracking-api\defect-tracking-api\out\production\classes started by Dell in C:\Users\Dell\IdeaProjects\Emexo)
+2023-01-20 07:48:41 - Running with Spring Boot v2.7.7, Spring v5.3.24
+2023-01-20 07:48:41 - The following 1 profile is active: "sit"
+2023-01-20 07:48:49 - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-01-20 07:48:50 - Finished Spring Data repository scanning in 305 ms. Found 3 JPA repository interfaces.
+2023-01-20 07:48:56 - Tomcat initialized with port(s): 8085 (http)
+2023-01-20 07:48:56 - Starting service [Tomcat]
+2023-01-20 07:48:56 - Starting Servlet engine: [Apache Tomcat/9.0.70]
+2023-01-20 07:48:58 - Initializing Spring embedded WebApplicationContext
+2023-01-20 07:48:58 - Root WebApplicationContext: initialization completed in 16346 ms
+2023-01-20 07:49:00 - HikariPool-1 - Starting...
+2023-01-20 07:49:06 - HikariPool-1 - Start completed.
+2023-01-20 07:49:07 - HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-01-20 07:49:07 - HHH000412: Hibernate ORM core version 5.6.14.Final
+2023-01-20 07:49:09 - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2023-01-20 07:49:10 - HHH000400: Using dialect: org.hibernate.dialect.Oracle10gDialect
+2023-01-20 07:49:16 - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-01-20 07:49:16 - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-01-20 07:49:20 - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-01-20 07:49:25 - Tomcat started on port(s): 8085 (http) with context path ''
+2023-01-20 07:49:25 - Started DefectTrackingApiApplication in 49.828 seconds (JVM running for 56.438)
+2023-01-20 07:49:25 - Application has been started
+2023-01-20 07:49:41 - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-01-20 07:49:41 - Initializing Servlet 'dispatcherServlet'
+2023-01-20 07:49:41 - Completed initialization in 7 ms
+2023-01-20 07:50:04 - Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-01-20 07:50:04 - HikariPool-1 - Shutdown initiated...
+2023-01-20 07:50:04 - HikariPool-1 - Shutdown completed.
+2023-01-20 07:53:09 - Starting DefectTrackingApiApplication using Java 1.8.0_144 on DESKTOP-3TVHP8S with PID 16912 (C:\Users\Dell\IdeaProjects\defect-tracking-api\defect-tracking-api\out\production\classes started by Dell in C:\Users\Dell\IdeaProjects\Emexo)
+2023-01-20 07:53:09 - Running with Spring Boot v2.7.7, Spring v5.3.24
+2023-01-20 07:53:09 - The following 1 profile is active: "sit"
+2023-01-20 07:53:12 - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-01-20 07:53:12 - Finished Spring Data repository scanning in 233 ms. Found 3 JPA repository interfaces.
+2023-01-20 07:53:16 - Tomcat initialized with port(s): 8085 (http)
+2023-01-20 07:53:16 - Starting service [Tomcat]
+2023-01-20 07:53:16 - Starting Servlet engine: [Apache Tomcat/9.0.70]
+2023-01-20 07:53:17 - Initializing Spring embedded WebApplicationContext
+2023-01-20 07:53:17 - Root WebApplicationContext: initialization completed in 7363 ms
+2023-01-20 07:53:18 - HikariPool-1 - Starting...
+2023-01-20 07:53:20 - HikariPool-1 - Start completed.
+2023-01-20 07:53:20 - HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-01-20 07:53:20 - HHH000412: Hibernate ORM core version 5.6.14.Final
+2023-01-20 07:53:21 - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2023-01-20 07:53:21 - HHH000400: Using dialect: org.hibernate.dialect.Oracle10gDialect
+2023-01-20 07:53:24 - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-01-20 07:53:24 - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-01-20 07:53:27 - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-01-20 07:53:31 - Tomcat started on port(s): 8085 (http) with context path ''
+2023-01-20 07:53:31 - Started DefectTrackingApiApplication in 23.766 seconds (JVM running for 25.645)
+2023-01-20 07:53:31 - Application has been started
+2023-01-20 07:53:36 - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-01-20 07:53:36 - Initializing Servlet 'dispatcherServlet'
+2023-01-20 07:53:36 - Completed initialization in 6 ms
+2023-01-20 07:53:39 - Init duration for springdoc-openapi is: 1712 ms
+2023-01-20 07:54:31 - Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-01-20 07:54:31 - HikariPool-1 - Shutdown initiated...
+2023-01-20 07:54:31 - HikariPool-1 - Shutdown completed.
+2023-01-20 08:00:18 - Starting DefectTrackingApiApplication using Java 1.8.0_144 on DESKTOP-3TVHP8S with PID 3260 (C:\Users\Dell\IdeaProjects\defect-tracking-api\defect-tracking-api\out\production\classes started by Dell in C:\Users\Dell\IdeaProjects\Emexo)
+2023-01-20 08:00:18 - Running with Spring Boot v2.7.7, Spring v5.3.24
+2023-01-20 08:00:18 - The following 1 profile is active: "sit"
+2023-01-20 08:00:29 - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-01-20 08:00:30 - Finished Spring Data repository scanning in 552 ms. Found 3 JPA repository interfaces.
+2023-01-20 08:00:43 - Tomcat initialized with port(s): 8085 (http)
+2023-01-20 08:00:43 - Starting service [Tomcat]
+2023-01-20 08:00:43 - Starting Servlet engine: [Apache Tomcat/9.0.70]
+2023-01-20 08:00:45 - Initializing Spring embedded WebApplicationContext
+2023-01-20 08:00:45 - Root WebApplicationContext: initialization completed in 26640 ms
+2023-01-20 08:00:49 - HikariPool-1 - Starting...
+2023-01-20 08:00:52 - HikariPool-1 - Start completed.
+2023-01-20 08:00:54 - HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-01-20 08:00:55 - HHH000412: Hibernate ORM core version 5.6.14.Final
+2023-01-20 08:00:58 - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2023-01-20 08:01:01 - HHH000400: Using dialect: org.hibernate.dialect.Oracle10gDialect
+2023-01-20 08:01:10 - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-01-20 08:01:10 - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-01-20 08:01:13 - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-01-20 08:01:17 - Exposing 8 endpoint(s) beneath base path '/actuator'
+2023-01-20 08:01:18 - Tomcat started on port(s): 8085 (http) with context path ''
+2023-01-20 08:01:18 - Started DefectTrackingApiApplication in 66.792 seconds (JVM running for 70.291)
+2023-01-20 08:01:18 - Application has been started
+2023-01-20 08:01:22 - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-01-20 08:01:22 - Initializing Servlet 'dispatcherServlet'
+2023-01-20 08:01:22 - Completed initialization in 6 ms
+2023-01-20 08:02:06 - Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-01-20 08:02:06 - HikariPool-1 - Shutdown initiated...
+2023-01-20 08:02:06 - HikariPool-1 - Shutdown completed.
+2023-01-20 08:04:04 - Starting DefectTrackingApiApplication using Java 1.8.0_144 on DESKTOP-3TVHP8S with PID 6536 (C:\Users\Dell\IdeaProjects\defect-tracking-api\defect-tracking-api\out\production\classes started by Dell in C:\Users\Dell\IdeaProjects\Emexo)
+2023-01-20 08:04:04 - Running with Spring Boot v2.7.7, Spring v5.3.24
+2023-01-20 08:04:04 - The following 1 profile is active: "sit"
+2023-01-20 08:04:10 - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-01-20 08:04:10 - Finished Spring Data repository scanning in 323 ms. Found 3 JPA repository interfaces.
+2023-01-20 08:04:14 - Tomcat initialized with port(s): 8085 (http)
+2023-01-20 08:04:14 - Starting service [Tomcat]
+2023-01-20 08:04:14 - Starting Servlet engine: [Apache Tomcat/9.0.70]
+2023-01-20 08:04:15 - Initializing Spring embedded WebApplicationContext
+2023-01-20 08:04:15 - Root WebApplicationContext: initialization completed in 10665 ms
+2023-01-20 08:04:19 - HikariPool-1 - Starting...
+2023-01-20 08:04:21 - HikariPool-1 - Start completed.
+2023-01-20 08:04:21 - HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-01-20 08:04:22 - HHH000412: Hibernate ORM core version 5.6.14.Final
+2023-01-20 08:04:24 - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2023-01-20 08:04:24 - HHH000400: Using dialect: org.hibernate.dialect.Oracle10gDialect
+2023-01-20 08:04:29 - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-01-20 08:04:29 - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-01-20 08:04:33 - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-01-20 08:04:39 - Exposing 8 endpoint(s) beneath base path '/actuator'
+2023-01-20 08:04:40 - Tomcat started on port(s): 8085 (http) with context path ''
+2023-01-20 08:04:40 - Started DefectTrackingApiApplication in 38.334 seconds (JVM running for 40.972)
+2023-01-20 08:04:40 - Application has been started
+2023-01-20 08:04:45 - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-01-20 08:04:45 - Initializing Servlet 'dispatcherServlet'
+2023-01-20 08:04:45 - Completed initialization in 64 ms
+2023-01-20 08:05:09 - Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-01-20 08:05:09 - HikariPool-1 - Shutdown initiated...
+2023-01-20 08:05:09 - HikariPool-1 - Shutdown completed.
+2023-01-20 20:01:30 - Starting DefectTrackingApiApplication using Java 1.8.0_144 on DESKTOP-3TVHP8S with PID 11524 (C:\Users\Dell\IdeaProjects\defect-tracking-api\defect-tracking-api\out\production\classes started by Dell in C:\Users\Dell\IdeaProjects\Emexo)
+2023-01-20 20:01:30 - Running with Spring Boot v2.7.7, Spring v5.3.24
+2023-01-20 20:01:30 - The following 1 profile is active: "sit"
+2023-01-20 20:01:34 - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-01-20 20:01:34 - Finished Spring Data repository scanning in 180 ms. Found 3 JPA repository interfaces.
+2023-01-20 20:01:38 - Tomcat initialized with port(s): 8085 (http)
+2023-01-20 20:01:38 - Starting service [Tomcat]
+2023-01-20 20:01:38 - Starting Servlet engine: [Apache Tomcat/9.0.70]
+2023-01-20 20:01:38 - Initializing Spring embedded WebApplicationContext
+2023-01-20 20:01:38 - Root WebApplicationContext: initialization completed in 7973 ms
+2023-01-20 20:01:40 - HikariPool-1 - Starting...
+2023-01-20 20:01:42 - HikariPool-1 - Start completed.
+2023-01-20 20:01:42 - HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-01-20 20:01:42 - HHH000412: Hibernate ORM core version 5.6.14.Final
+2023-01-20 20:01:43 - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2023-01-20 20:01:44 - HHH000400: Using dialect: org.hibernate.dialect.Oracle10gDialect
+2023-01-20 20:01:47 - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-01-20 20:01:47 - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-01-20 20:01:49 - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-01-20 20:01:55 - Exposing 8 endpoint(s) beneath base path '/actuator'
+2023-01-20 20:01:55 - Tomcat started on port(s): 8085 (http) with context path ''
+2023-01-20 20:01:55 - Started DefectTrackingApiApplication in 29.802 seconds (JVM running for 33.661)
+2023-01-20 20:01:55 - Application has been started
+2023-01-20 20:02:13 - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-01-20 20:02:13 - Initializing Servlet 'dispatcherServlet'
+2023-01-20 20:02:13 - Completed initialization in 9 ms
+2023-01-20 20:02:19 - Init duration for springdoc-openapi is: 1702 ms
+2023-01-20 20:03:14 - Inside ReleaseController.save, releaseVO:ReleaseRequest{releaseId=0, description='UAT-Testing', releaseDate=Fri Jan 20 20:02:29 IST 2023}
+2023-01-20 20:03:14 - Inside ReleaseServiceImpl.save, releaseRequest:ReleaseRequest{releaseId=0, description='UAT-Testing', releaseDate=Fri Jan 20 20:02:29 IST 2023}
+2023-01-20 20:03:38 - Inside the ReleaseController.getRelease
+2023-01-20 20:03:38 - Inside ReleaseServiceImpl.findAll
+2023-01-20 20:03:38 - Find all release response: [Release(releaseId=1, description=Release the testing, releaseDate=2023-01-13 00:00:00.0), Release(releaseId=21, description=SIT_Testing, releaseDate=2023-01-16 00:00:00.0), Release(releaseId=22, description=UAT-Testing, releaseDate=2023-01-20 20:02:29.0)]
+2023-01-20 20:26:22 - Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-01-20 20:26:22 - HikariPool-1 - Shutdown initiated...
+2023-01-20 20:26:22 - HikariPool-1 - Shutdown completed.
+2023-01-20 20:51:30 - Starting DefectTrackingApiApplication using Java 1.8.0_144 on DESKTOP-3TVHP8S with PID 13100 (C:\Users\Dell\IdeaProjects\defect-tracking-api\defect-tracking-api\out\production\classes started by Dell in C:\Users\Dell\IdeaProjects\Emexo)
+2023-01-20 20:51:30 - Running with Spring Boot v2.7.7, Spring v5.3.24
+2023-01-20 20:51:30 - The following 1 profile is active: "sit"
+2023-01-20 20:51:37 - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-01-20 20:51:38 - Finished Spring Data repository scanning in 349 ms. Found 3 JPA repository interfaces.
+2023-01-20 20:51:43 - Tomcat initialized with port(s): 8085 (http)
+2023-01-20 20:51:43 - Starting service [Tomcat]
+2023-01-20 20:51:43 - Starting Servlet engine: [Apache Tomcat/9.0.70]
+2023-01-20 20:51:43 - Initializing Spring embedded WebApplicationContext
+2023-01-20 20:51:43 - Root WebApplicationContext: initialization completed in 13043 ms
+2023-01-20 20:51:46 - HikariPool-1 - Starting...
+2023-01-20 20:51:50 - HikariPool-1 - Start completed.
+2023-01-20 20:51:51 - HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-01-20 20:51:51 - HHH000412: Hibernate ORM core version 5.6.14.Final
+2023-01-20 20:51:52 - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2023-01-20 20:51:53 - HHH000400: Using dialect: org.hibernate.dialect.Oracle10gDialect
+2023-01-20 20:51:57 - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-01-20 20:51:57 - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-01-20 20:52:01 - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-01-20 20:52:06 - Exposing 8 endpoint(s) beneath base path '/actuator'
+2023-01-20 20:52:06 - Tomcat started on port(s): 8085 (http) with context path ''
+2023-01-20 20:52:06 - Started DefectTrackingApiApplication in 38.685 seconds (JVM running for 40.511)
+2023-01-20 20:52:06 - Application has been started
+2023-01-20 20:52:22 - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-01-20 20:52:22 - Initializing Servlet 'dispatcherServlet'
+2023-01-20 20:52:22 - Completed initialization in 4 ms
+2023-01-20 20:52:26 - Init duration for springdoc-openapi is: 1699 ms
+2023-01-20 20:53:28 - Resolved [org.springframework.http.converter.HttpMessageNotReadableException: JSON parse error: Unexpected character (',' (code 44)): was expecting double-quote to start field name; nested exception is com.fasterxml.jackson.core.JsonParseException: Unexpected character (',' (code 44)): was expecting double-quote to start field name<EOL> at [Source: (org.springframework.util.StreamUtils$NonClosingInputStream); line: 2, column: 3]]
+2023-01-20 20:56:01 - Inside TicketServiceImpl save ticketRequest:TicketRequest{ticketId=0, application=Application(applicationId=27, description=string, applicationName=string, owner=string), release=Release(releaseId=22, description=string, releaseDate=Fri Jan 20 20:55:20 IST 2023), description='Ticket-release', status='success', title='UAT'}
+2023-01-20 20:56:31 - Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-01-20 20:56:31 - HikariPool-1 - Shutdown initiated...
+2023-01-20 20:56:31 - HikariPool-1 - Shutdown completed.

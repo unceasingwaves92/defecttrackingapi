@@ -11,3 +11,15 @@ logging:
   pattern:
     file: "%d{yyyy-MM-dd HH:mm:ss} - %msg%n"
 
+management:
+  endpoints:
+    web:
+      exposure:
+            include: info,health,metrics,loggers,beans,mappings,threaddump,env
+  endpoint:
+    health:
+      show-details: always
+
+spring:
+  jpa:
+  show-sql: true

@@ -2,6 +2,7 @@ package com.defecttracking.defecttrackingapi.controller;
 
 import com.defecttracking.defecttrackingapi.model.ApplicationVO;
 import com.defecttracking.defecttrackingapi.model.ReleaseVO;
+import com.defecttracking.defecttrackingapi.model.TicketRequest;
 import com.defecttracking.defecttrackingapi.model.TicketVO;
 import com.defecttracking.defecttrackingapi.service.TicketService;
 import lombok.extern.slf4j.Slf4j;
@@ -9,10 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.util.CollectionUtils;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -61,4 +59,24 @@ public class TicketController {
         return new ResponseEntity<TicketVO>(ticketVO, HttpStatus.OK);
 
     }
+
+    @PostMapping
+    public ResponseEntity<String> saveTicket(@RequestBody TicketRequest ticketRequest) {
+        if(ticketRequest==null){
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+        }
+        TicketVO ticketVO = null;
+        try {
+            ticketVO=ticketService.save(ticketRequest);
+            if(ticketVO==null){
+                log.error("Tickets details not saved");
+                return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+            }
+        }catch(Exception ex){
+            log.error("Exception while saving tickets");
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+        return new ResponseEntity<>("Tickets has been saved", HttpStatus.OK);
+    }
+
 }

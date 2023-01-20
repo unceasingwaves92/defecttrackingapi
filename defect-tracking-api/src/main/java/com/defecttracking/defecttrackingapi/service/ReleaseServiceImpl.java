@@ -2,11 +2,13 @@ package com.defecttracking.defecttrackingapi.service;
 
 import com.defecttracking.defecttrackingapi.entity.Release;
 import com.defecttracking.defecttrackingapi.exception.ReleaseNotFoundException;
+import com.defecttracking.defecttrackingapi.model.ReleaseRequest;
 import com.defecttracking.defecttrackingapi.model.ReleaseVO;
 import com.defecttracking.defecttrackingapi.repository.ReleaseRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.PostMapping;
 
 import java.util.List;
 import java.util.Optional;
@@ -63,5 +65,41 @@ public class ReleaseServiceImpl implements ReleaseService{
         releaseVO.setDescription(release.get().getDescription());
         releaseVO.setReleaseDate(release.get().getReleaseDate());
         return releaseVO;
+    }
+    /**
+     * Save the releases
+     */
+
+    public ReleaseVO save(ReleaseRequest releaseRequest) throws ReleaseNotFoundException{
+        log.info("Inside ReleaseServiceImpl.save, releaseRequest:{}", releaseRequest);
+        if(releaseRequest == null){
+            log.info("Invalid release request");
+            throw new ReleaseNotFoundException("Invalid release request");
+        }
+        // Release request convert into release entity
+        Release release = new Release();
+        if(releaseRequest.getReleaseId()>0){
+            release.setReleaseId(releaseRequest.getReleaseId());
+        }
+        if(releaseRequest.getDescription() != null){
+            release.setDescription(releaseRequest.getDescription());
+        }
+
+        if(releaseRequest.getReleaseDate() != null){
+            release.setReleaseDate(releaseRequest.getReleaseDate());
+        }
+
+        // save the entity in JPA repository
+        Release releaseresponse = releaseRepository.save(release);
+        ReleaseVO releaseVO = null;
+        if(releaseresponse!=null){
+            // another pojo class it will insert the record
+            releaseVO = new ReleaseVO();
+            releaseVO.setReleaseId(release.getReleaseId());
+            releaseVO.setDescription(release.getDescription());
+            releaseVO.setReleaseDate(release.getReleaseDate());
+        }
+        return releaseVO;
+
     }
 }

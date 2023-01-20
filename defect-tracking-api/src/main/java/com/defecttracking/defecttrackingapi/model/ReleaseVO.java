@@ -5,6 +5,9 @@ import lombok.Setter;
 import lombok.ToString;
 
 import javax.persistence.Column;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+import java.util.Date;
 
 @Getter
 @Setter
@@ -12,5 +15,6 @@ import javax.persistence.Column;
 public class ReleaseVO {
     private int releaseId;
     private String description;
-    private String releaseDate;
+    @Temporal(TemporalType.DATE)
+    private Date releaseDate;
 }

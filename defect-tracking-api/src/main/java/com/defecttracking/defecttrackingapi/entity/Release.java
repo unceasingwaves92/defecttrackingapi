@@ -4,6 +4,7 @@ import lombok.Data;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.Date;
 
 @Entity
 @Data
@@ -20,6 +21,6 @@ public class Release implements Serializable{
     private String description;
 
     @Column(name = "release_date")
-    private String releaseDate;
+    private Date releaseDate;
 
 }

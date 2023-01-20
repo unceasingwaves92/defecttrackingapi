@@ -1,6 +1,7 @@
 package com.defecttracking.defecttrackingapi.controller;
 
 import com.defecttracking.defecttrackingapi.exception.ReleaseNotFoundException;
+import com.defecttracking.defecttrackingapi.model.ReleaseRequest;
 import com.defecttracking.defecttrackingapi.model.ReleaseVO;
 import com.defecttracking.defecttrackingapi.service.ReleaseService;
 import lombok.extern.slf4j.Slf4j;
@@ -8,10 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.util.CollectionUtils;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -59,4 +57,25 @@ public class ReleaseController {
         return new ResponseEntity<ReleaseVO>(releaseVOS, HttpStatus.OK);
 
     }
+
+    @PostMapping
+    public ResponseEntity<String> saveRelease(@RequestBody ReleaseRequest releaseRequest){
+        log.info("Inside ReleaseController.save, releaseVO:{}", releaseRequest);
+        if(releaseRequest == null){
+            log.info("Invalid release request");
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+        }
+        ReleaseVO releaseVO = null;
+        try {
+            releaseVO = releaseService.save(releaseRequest);
+            if(releaseVO==null){
+            log.error("Release details not saved");
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);}
+        }catch(Exception ex){
+            log.error("Exception while saving releases");
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+            return new ResponseEntity<>("Release has been saved", HttpStatus.OK);
+    }
+
 }

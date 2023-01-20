@@ -3,7 +3,9 @@ package com.defecttracking.defecttrackingapi.service;
 import com.defecttracking.defecttrackingapi.entity.Release;
 import com.defecttracking.defecttrackingapi.entity.Ticket;
 import com.defecttracking.defecttrackingapi.exception.ReleaseNotFoundException;
+import com.defecttracking.defecttrackingapi.exception.TicketNotFoundException;
 import com.defecttracking.defecttrackingapi.model.ReleaseVO;
+import com.defecttracking.defecttrackingapi.model.TicketRequest;
 import com.defecttracking.defecttrackingapi.model.TicketVO;
 import com.defecttracking.defecttrackingapi.repository.ReleaseRepository;
 import com.defecttracking.defecttrackingapi.repository.TicketRepository;
@@ -69,5 +71,58 @@ public class TicketServiceImpl implements TicketService{
         ticketVO.setStatus(ticket.get().getStatus());
         ticketVO.setTitle(ticket.get().getTitle());
         return ticketVO;
+    }
+
+    /**
+     * Save the tickets
+     */
+
+    public TicketVO save(TicketRequest ticketRequest) throws TicketNotFoundException {
+        log.info("Inside TicketServiceImpl save ticketRequest:{}", ticketRequest);
+        if(ticketRequest == null){
+            log.info("Invalid ticket request");
+            throw new TicketNotFoundException("Invalid ticket request");
+        }
+        // TicketRequest convert to ticket entity
+        Ticket ticket = new Ticket();
+        if(ticketRequest.getTicketId() > 0 ){
+            ticket.setTicketId(ticketRequest.getTicketId());
+        }
+        if(ticketRequest.getApplication() != null){
+            ticket.setApplication(ticketRequest.getApplication());
+        }
+
+        if(ticketRequest.getRelease() != null){
+            ticket.setRelease(ticketRequest.getRelease());
+        }
+
+        if(ticketRequest.getDescription() != null){
+            ticket.setDescription(ticketRequest.getDescription());
+        }
+
+        if(ticketRequest.getStatus() != null){
+            ticket.setStatus(ticketRequest.getStatus());
+        }
+
+        if(ticketRequest.getTitle() != null){
+            ticket.setTitle(ticketRequest.getTitle());
+        }
+
+        // save the JPA repository in entity
+        Ticket ticketresponse = ticketRepository.save(ticket);
+        TicketVO ticketVO = null;
+        if(ticketresponse!=null){
+            // another pojo class insert the record
+            ticketVO = new TicketVO();
+            ticketVO.setTicketId(ticket.getTicketId());
+            ticketVO.setApplication(ticket.getApplication());
+            ticketVO.setRelease(ticket.getRelease());
+            ticketVO.setDescription(ticket.getDescription());
+            ticketVO.setStatus(ticket.getStatus());
+            ticketVO.setTitle(ticket.getTitle());
+
+        }
+        return ticketVO;
+
     }
 }
