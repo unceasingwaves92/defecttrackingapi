@@ -11,8 +11,10 @@ public interface ApplicationRepository extends JpaRepository<Application, Long> 
     
     Optional<Application> findByApplicationName(String name);
 
-  //  @Query(value = "Select app from Application app where applicationName=:name")
-  //  Optional<Application> findApplicationByName(@Param("name") String name);
+  //  Optional<Application> findByAppName(String name, int id);
+
+    @Query(value = "Select app from Application app where applicationName=:name and applicationId=:id")
+    Optional<Application> findByAppName(@Param("name") String name, @Param("id") long id);
 
 
 }

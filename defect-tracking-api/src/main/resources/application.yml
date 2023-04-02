@@ -1,11 +1,21 @@
 server:
   port: 8085
+
+spring:
+  application:
+    name: defect-tracking-service
+  sql:
+    jpa:
+      show-sql: true
+
 logging:
   level:
     org:
       springframework: info
     com:
       defecttracking: debug
+      myspringboot:
+          kafka: debug
   file:
     name: C:/Users/Dell/IdeaProjects/defect-tracking-api/defect-tracking-api/defect-tracking-api.log
   pattern:
@@ -20,6 +30,7 @@ management:
     health:
       show-details: always
 
-spring:
-  jpa:
-  show-sql: true
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:1090/eureka/

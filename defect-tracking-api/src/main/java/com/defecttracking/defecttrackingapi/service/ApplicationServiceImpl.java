@@ -1,5 +1,6 @@
 package com.defecttracking.defecttrackingapi.service;
 
+import com.defecttracking.defecttrackingapi.configuration.CountDownLatchHandler;
 import com.defecttracking.defecttrackingapi.entity.Application;
 import com.defecttracking.defecttrackingapi.exception.ApplicationNotFoundException;
 import com.defecttracking.defecttrackingapi.model.ApplicationRequest;
@@ -7,12 +8,24 @@ import com.defecttracking.defecttrackingapi.model.ApplicationVO;
 import com.defecttracking.defecttrackingapi.repository.ApplicationRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.CacheEvict;
+import org.springframework.cache.annotation.Cacheable;
+import org.springframework.context.ApplicationContext;
+import org.springframework.kafka.support.KafkaHeaders;
+import org.springframework.messaging.MessageChannel;
+import org.springframework.messaging.support.GenericMessage;
+import org.springframework.scheduling.annotation.Async;
+import org.springframework.security.access.prepost.PostAuthorize;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Service;
 
+import java.util.Collections;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
+import java.util.concurrent.CompletableFuture;
+import java.util.concurrent.TimeUnit;
 import java.util.stream.Collectors;
-
 
 /**
  * Application service implementation
@@ -23,8 +36,20 @@ import java.util.stream.Collectors;
 public class ApplicationServiceImpl implements ApplicationService {
 
     @Autowired
+    private ApplicationContext applicationContext;
+
+    private static String SPRING_INTEGRATION_KAFKA_TOPIC = "test";
+    @Autowired
     private ApplicationRepository applicationRepository;
 
+    @Autowired
+    private CountDownLatchHandler countDownLatchHandler;
+
+/*    public ApplicationServiceImpl(ApplicationContext applicationContext) {
+        this.applicationContext = applicationContext;
+    }*/
+
+    @PreAuthorize("hasRole('ADMIN')")
     @Override
     public List<ApplicationVO> findAll() {
         log.info("Inside ApplicationServiceImpl.findAll");
@@ -39,16 +64,20 @@ public class ApplicationServiceImpl implements ApplicationService {
             applicationVO.setDescription(application.getDescription());
             return applicationVO;
         }).collect(Collectors.toList());
-        return applicationVOS;
+        return (applicationVOS);
 
 }
+
 
     /** Get application by id
      *
      */
+    @Cacheable("findById")
+    @Async("asyncBean")
     @Override
-    public ApplicationVO getApplicationId(long id) throws ApplicationNotFoundException {
+    public CompletableFuture<ApplicationVO> getApplicationId(long id) throws ApplicationNotFoundException, InterruptedException {
         log.info("Inside ApplicationServiceImpl.getApplicationbyId, id:{}", id);
+        Thread.sleep(6000);
         if(id<=0){
             log.info("Invalid application id, application Id:{id}", id);
             throw new ApplicationNotFoundException("invalid application id");
@@ -63,7 +92,28 @@ public class ApplicationServiceImpl implements ApplicationService {
         applicationVO.setDescription(application.get().getDescription());
         applicationVO.setApplicationName(application.get().getApplicationName());
         applicationVO.setOwner(application.get().getOwner());
-        return applicationVO;
+        return CompletableFuture.completedFuture(applicationVO);
+    }
+
+    @Override
+    public ApplicationVO getAppId(long id) throws ApplicationNotFoundException, InterruptedException {
+        log.info("Inside ApplicationServiceImpl.getApplicationbyId, id:{}", id);
+        Thread.sleep(6000);
+        if(id<=0){
+            log.info("Invalid application id, application Id:{id}", id);
+            throw new ApplicationNotFoundException("invalid application id");
+        }
+        Optional<Application> application = applicationRepository.findById(id);
+        if(!application.isPresent()){
+            log.info("No record found for application id:{}", id);
+            throw new ApplicationNotFoundException("No record found for application id");
+        }
+        ApplicationVO applicationVO = new ApplicationVO();
+        applicationVO.setApplicationId(application.get().getApplicationId());
+        applicationVO.setDescription(application.get().getDescription());
+        applicationVO.setApplicationName(application.get().getApplicationName());
+        applicationVO.setOwner(application.get().getOwner());
+        return (applicationVO);
     }
 
     /**
@@ -71,10 +121,12 @@ public class ApplicationServiceImpl implements ApplicationService {
      * @param name
      * @return
      */
-
+    @Cacheable("findByName")
+    @Async("asyncBean")
     @Override
-    public ApplicationVO findByName(String name) throws ApplicationNotFoundException {
+    public CompletableFuture<ApplicationVO> findByName(String name) throws ApplicationNotFoundException, InterruptedException {
         log.info("Input to ApplicationServiceImpl.FindByName, name:{} ", name);
+        Thread.sleep(6000);
         ApplicationVO applicationVO = null;
         if(name==null){
             log.info("Invalid application name, application nameId:{name}", name);
@@ -89,7 +141,48 @@ public class ApplicationServiceImpl implements ApplicationService {
             applicationVO.setApplicationName(application.get().getApplicationName());
             applicationVO.setOwner(application.get().getOwner());
         }
-        return applicationVO;
+        return CompletableFuture.completedFuture(applicationVO);
+    }
+
+    @Override
+    public ApplicationVO findGetByName(String name) throws ApplicationNotFoundException, InterruptedException {
+        log.info("Input to ApplicationServiceImpl.FindByName, name:{} ", name);
+        Thread.sleep(6000);
+        ApplicationVO applicationVO = null;
+        if(name==null){
+            log.info("Invalid application name, application nameId:{name}", name);
+            throw new ApplicationNotFoundException("invalid application name");
+        }
+        Optional<Application> application = applicationRepository.findByApplicationName(name);
+        if(application.isPresent()){
+            log.info("Find application by name response: {}", application.get());
+            applicationVO = new ApplicationVO();
+            applicationVO.setApplicationId(application.get().getApplicationId());
+            applicationVO.setDescription(application.get().getDescription());
+            applicationVO.setApplicationName(application.get().getApplicationName());
+            applicationVO.setOwner(application.get().getOwner());
+        }
+        return (applicationVO);
+    }
+
+
+    public ApplicationVO findByNameApp(String name, long id) throws ApplicationNotFoundException, InterruptedException {
+        log.info("Input to ApplicationServiceImpl.FindByName, name:{} ", name, id);
+        ApplicationVO applicationVO = null;
+        if(name==null){
+            log.info("Invalid application name, application nameId:{name}", name, id);
+            throw new ApplicationNotFoundException("invalid application name");
+        }
+        Optional<Application> application = applicationRepository.findByAppName(name, id);
+        if(application.isPresent()){
+            log.info("Find application by name response: {}", application.get());
+            applicationVO = new ApplicationVO();
+            applicationVO.setApplicationId(application.get().getApplicationId());
+            applicationVO.setDescription(application.get().getDescription());
+            applicationVO.setApplicationName(application.get().getApplicationName());
+            applicationVO.setOwner(application.get().getOwner());
+        }
+        return (applicationVO);
     }
 
     /**
@@ -98,7 +191,7 @@ public class ApplicationServiceImpl implements ApplicationService {
      * @return
      * @throws ApplicationNotFoundException
      */
-
+    @PreAuthorize("hasRole('USER')")
     public ApplicationVO save(ApplicationRequest applicationRequest) throws ApplicationNotFoundException {
         log.info("Inside the ApplicationServiceImpl.save method and params, applicationRequest:{}", applicationRequest);
 
@@ -142,6 +235,7 @@ public class ApplicationServiceImpl implements ApplicationService {
      * @throws ApplicationNotFoundException
      */
 
+    @PostAuthorize("returnObject.type == authentication.user")
     public String delete(long id) throws ApplicationNotFoundException {
         log.info("Input to AppplicationServiceImpl.delete, id:{}", id);
         if(id<0){
@@ -156,7 +250,39 @@ public class ApplicationServiceImpl implements ApplicationService {
         }
         return "Application has been deleted";
         }
+
+    @CacheEvict(value = "findByName",allEntries = true)
+    public void clearFindByNameCache(){
+
     }
+
+    @CacheEvict(value = "findById", allEntries = true)
+    public void clearFindByIdcCache(){
+
+    }
+
+    public void testIntegration() throws Exception {
+        MessageChannel producingChannel =
+                applicationContext.getBean("producingChannel", MessageChannel.class);
+
+        Map<String, Object> headers =
+                Collections.singletonMap(KafkaHeaders.TOPIC, SPRING_INTEGRATION_KAFKA_TOPIC);
+
+        //log.info("sending 10 messages");
+        for (int i = 0; i < 10; i++) {
+            GenericMessage<String> message =
+                    new GenericMessage<>("Hello Spring Integration Kafka " + i + "!", headers);
+            producingChannel.send(message);
+            System.out.println("sent message:" + message);
+        }
+        countDownLatchHandler.getLatch().await(10000, TimeUnit.MILLISECONDS);
+      //  assertThat(countDownLatchHandler.getLatch().getCount()).isEqualTo(10);
+    }
+
+
+
+}
+
 
 
 
